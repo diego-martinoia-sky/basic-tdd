@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 
 public class LuhnNumberNumberImplTest {
 
-    LuhnNumber initLuhnNumber(int number) {
+    LuhnNumber initLuhnNumber(long number) {
         LuhnNumber luhnNumber = new LuhnNumberImpl();
         luhnNumber.setNumber(number);
         return luhnNumber;
@@ -17,7 +17,7 @@ public class LuhnNumberNumberImplTest {
     @Test
     public void checkDigitIsRightMostDigit() {
         LuhnNumber luhnNumber = initLuhnNumber(34567);
-        int expectedOutput = 7;
+        long expectedOutput = 7;
 
         assertEquals(expectedOutput, luhnNumber.getCheckDigit());
     }
@@ -25,7 +25,7 @@ public class LuhnNumberNumberImplTest {
     @Test
     public void addendsDoublesEveryOtherNumberFromRight() {
         LuhnNumber luhnNumber = initLuhnNumber(12121);
-        int[] expectedOutput = new int[]{1, 4, 1, 4, 1};
+        long[] expectedOutput = new long[]{1, 4, 1, 4, 1};
 
         assertArrayEquals(expectedOutput, luhnNumber.getAddends());
     }
@@ -33,7 +33,7 @@ public class LuhnNumberNumberImplTest {
     @Test
     public void addendsSubtracts9WhenDoubledNumberIsMoreThan9() {
         LuhnNumber luhnNumber = initLuhnNumber(8631);
-        int[] expectedOutput = new int[]{7, 6, 6, 1};
+        long[] expectedOutput = new long[]{7, 6, 6, 1};
 
         assertArrayEquals(expectedOutput, luhnNumber.getAddends());
     }
@@ -41,7 +41,7 @@ public class LuhnNumberNumberImplTest {
     @Test
     public void checkSumAddsAddendsTogether1() {
         LuhnNumber luhnNumber = initLuhnNumber(4913);
-        int expectedOutput = 22;
+        long expectedOutput = 22;
 
         assertEquals(expectedOutput, luhnNumber.getCheckSum());
     }
@@ -49,7 +49,7 @@ public class LuhnNumberNumberImplTest {
     @Test
     public void checkSumAddsAddendsTogether2() {
         LuhnNumber luhnNumber = initLuhnNumber(201773);
-        int expectedOutput = 21;
+        long expectedOutput = 21;
 
         assertEquals(expectedOutput, luhnNumber.getCheckSum());
     }
@@ -74,20 +74,20 @@ public class LuhnNumberNumberImplTest {
     public void luhnNumberCanCreateSimpleNumbersWithValidCheckDigit() {
         long expectedOutput = 1230;
 
-        assertEquals(expectedOutput, LuhnNumberImpl.create(123));
+        assertEquals(expectedOutput, LuhnNumber.create(123));
     }
 
     @Test
     public void luhnNumberCanCreateLargeNumbersWithValidCheckDigit() {
         long expectedOutput = 8739567;
 
-        assertEquals(expectedOutput, LuhnNumberImpl.create(873956));
+        assertEquals(expectedOutput, LuhnNumber.create(873956));
     }
 
     @Test
     public void luhnNumberCanCreateHugeNumbersWithValidCheckDigit() {
         long expectedOutput = 8372637564L;
 
-        assertEquals(expectedOutput, LuhnNumberImpl.create(837263756));
+        assertEquals(expectedOutput, LuhnNumber.create(837263756));
     }
 }

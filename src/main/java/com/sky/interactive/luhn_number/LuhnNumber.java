@@ -2,13 +2,17 @@ package com.sky.interactive.luhn_number;
 
 public interface LuhnNumber {
 
-    void setNumber(int number);
+    static long create(long number) {
+        return 0;
+    }
+    
+    void setNumber(long number);
 
-    int getCheckDigit();
+    long getCheckDigit();
 
-    int[] getAddends();
+    long[] getAddends();
 
-    int getCheckSum();
+    long getCheckSum();
 
     boolean isValid();
 }

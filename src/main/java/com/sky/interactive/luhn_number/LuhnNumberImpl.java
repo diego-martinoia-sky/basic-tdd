@@ -2,28 +2,23 @@ package com.sky.interactive.luhn_number;
 
 public class LuhnNumberImpl implements LuhnNumber {
 
-
-    public static long create(int number) {
+    @Override
+    public void setNumber(long number) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public void setNumber(int number) {
+    public long getCheckDigit() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public int getCheckDigit() {
+    public long[] getAddends() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public int[] getAddends() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public int getCheckSum() {
+    public long getCheckSum() {
         throw new UnsupportedOperationException();
     }
 
